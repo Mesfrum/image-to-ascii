@@ -27,9 +27,9 @@ def merge_sq(i, j):
     add_char(i, j, average_pixel_brightness)
 
 
-boundary = 50
+boundary = 30
 
-charSet = r'$@%&#*/(){}[]?-_+~<>!;:,"^`.            '
+charSet = r'$@%&#*/(){}[]?-_+~<>!;:,"^`. '
 len_char = len(charSet)
 print('charst length =', len_char)
 
@@ -40,8 +40,25 @@ if (not os.path.exists(user_input)):
     sys.exit("I did not find the file at, "+str(user_input))
 
 sample_image_1 = Image.open(user_input, 'r')
+sample_image_1 = sample_image_1.convert('RGB')
+sample_image_1.save('colors.jpg')
 
 width, height = sample_image_1.size  # get the size of the image
+pix = width*height
+
+if (pix >= 7680*4320):
+    print('This is an 8k image.\nIt will take a few minutes!!')
+    boundary = 70
+elif (pix >= 3840*2160):
+    print('This is an 4k image')
+    boundary = 30
+elif (pix >= 1280*720):
+    print('THis is a HD image')
+    boundary = 10
+else:
+    print('THis is a image with <HD quality.')
+    boundary = 5
+
 
 print('size =', sample_image_1.size, '\narea =',
       width*height, '\nboundary =', boundary)
@@ -53,5 +70,4 @@ with open('asciitxt.html', 'w') as f:
         for j in range(0, width, boundary):
             merge_sq(i, j)
 
-    f.write('\n</plaintext>\n')
 os.startfile(r'asciitxt.html')
