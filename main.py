@@ -5,6 +5,7 @@
 from PIL import Image
 import sys
 import os
+import easygui
 
 # Function to convert pixel brightness into ascii character
 
@@ -50,16 +51,20 @@ def merge_sq(i, j):
 charSet = r'$@%&#*/(){}[]?-_+~<>!;:,"^`. '
 len_char = len(charSet)
 
-# Take user input i.e. a path to a image
-user_input = input("Enter the path of your file: ")
-user_input = user_input.replace('"', '')
+# Take file 
+user_input = easygui.fileopenbox()
 
 # validate path
 if (not os.path.exists(user_input)):
     sys.exit("I did not find the file at, "+str(user_input))
 
-# open image in the path and convert into a .jpg format
-sample_image_1 = Image.open(user_input, 'r')
+# open image and check for errors
+try:
+    sample_image_1 = Image.open(user_input, 'r')
+except Exception:
+    sys.exit('not AN IMAGE')
+    
+# convert image into .jpg format
 sample_image_1 = sample_image_1.convert('RGB')
 sample_image_1.save('colors.jpg')
 
