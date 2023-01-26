@@ -1,5 +1,5 @@
-# This is my attempt at making a image to ascii converter
-# This program is one of my first projects and hence is not perfect
+# This is my attempt at making a image to ascii converter.
+# This program is one of my first projects and hence is not perfect.
 # Anyone with suggestions and willingness to contribute is welcome.
 
 from PIL import Image
@@ -51,18 +51,14 @@ def merge_sq(i, j):
 charSet = r'$@%&#*/(){}[]?-_+~<>!;:,"^`. '
 len_char = len(charSet)
 
-# Take file 
+# take user file 
 user_input = easygui.fileopenbox()
-
-# validate path
-if (not os.path.exists(user_input)):
-    sys.exit("I did not find the file at, "+str(user_input))
 
 # open image and check for errors
 try:
     sample_image_1 = Image.open(user_input, 'r')
 except Exception:
-    sys.exit('not AN IMAGE')
+    sys.exit('NOT AN IMAGE')
     
 # convert image into .jpg format
 sample_image_1 = sample_image_1.convert('RGB')
@@ -82,7 +78,7 @@ elif (pix >= 3840*2160):
 elif (pix >= 1280*720):
     print('THis is a HD image')
     boundary = 10
-elif (pix >= 640*480):
+elif (pix >= 680*680):
     print('THis is a image with <HD quality.')
     boundary = 5
 else:
@@ -101,6 +97,9 @@ with open('asciitxt.html', 'w') as f:
     for i in range(0, height, boundary):
         for j in range(0, width, boundary):
             merge_sq(i, j)
+
+# delete jpg image
+os.remove(r'colors.jpg',dir_fd=None)
 
 # open html file
 os.startfile(r'asciitxt.html')
