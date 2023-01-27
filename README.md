@@ -14,11 +14,16 @@ pip install -r requirements.txt
 
 ## Usage
 
-After installing from [requirements.txt](requirements.txt), run the main.py file and proceed as instructed.
+After installing from [requirements.txt](requirements.txt)- 
+* run the main.py file
+* select a image using the file open box
+* wait for your default browser to open a html file with your ASCII text
+
+Note - Images with higher resolution take a few minutes.
 
 ## Demo
 
-
+![Image to ascii demo](media\image2ascii.gif)
 
 ## Contributing
 
