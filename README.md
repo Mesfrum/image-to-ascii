@@ -23,7 +23,7 @@ Note - Images with higher resolution take a few minutes.
 
 ## Demo
 
-![Image to ascii demo](media\image2ascii.gif)
+![Image to ascii demo](https://github.com/Mesfrum/image-to-ascii/blob/main/media/image2ascii.gif)
 
 ## Contributing
 
