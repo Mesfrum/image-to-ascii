@@ -19,7 +19,7 @@ After installing from [requirements.txt](requirements.txt)-
 * select a image using the file open box
 * wait for your default browser to open a html file with your ASCII text
 
-Note - Images with higher resolution take a few minutes.
+        Note - Images with higher resolution take a few minutes.
 
 ## Demo
 
@@ -36,6 +36,9 @@ to discuss what you would like to change.
 
 ## Acknowledgements
 
+Algorithm used is loosely derived from - 
+
+* [Achieving Real-Time Color ASCII Rendering in Python](https://youtu.be/SzqKClkCi_0) - By [Alex](https://www.youtube.com/@user-fr5em2ss7p)
 
 ## License
 
